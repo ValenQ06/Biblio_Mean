@@ -6,8 +6,10 @@ const bookSchema = new mongoose.Schema({
   author: String,
   price: Number,
   imageUrl: String,
+  isbn: Number,
   bookStatus: String,
   registerDate: { type: Date, default: Date.now },
+  dbStatus: Boolean,
 });
 
 const book = mongoose.model("books", bookSchema);

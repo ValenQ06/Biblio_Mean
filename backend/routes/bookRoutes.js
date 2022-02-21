@@ -10,5 +10,10 @@ router.post(
 );
 
 router.get("/listBooks/:name?", bookController.listBooks);
+router.get("/listBooksAdmin/:name?", bookController.listBooksAdmin);
+router.put("/delete/:_id", bookController.deleteBook);
+router.put("/updateBookAdmin", bookController.updateBookAdmin);
 
 export default router;
+
+

@@ -8,5 +8,8 @@ const router = express.Router();
 router.post("/registerRole", roleMidd.existingRol, roleController.registerRole);
 
 router.get("/listrole/:name?", roleController.listrole);
+router.get("/listroleAdmin/:name?", roleController.listroleAdmin);
+router.put("/delete/:_id", roleController.deleteRole);
+router.put("/updateRoleAdmin", roleController.updateRoleAdmin);
 
 export default router;
