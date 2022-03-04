@@ -7,7 +7,6 @@ import { environment } from '../../environments/environment';
 })
 export class UserService {
   private env: string;
-
   constructor(private _http: HttpClient) {
     this.env = environment.APP_URL;
   }
@@ -17,5 +16,17 @@ export class UserService {
   }
   login(user: any) {
     return this._http.post<any>(this.env + 'user/login', user);
+  }
+
+  loggedIn() {
+    return !!localStorage.getItem('token');
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  logout() {
+    localStorage.removeItem('token');
   }
 }

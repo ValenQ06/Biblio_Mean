@@ -10,6 +10,8 @@ import { SaveBookComponent } from './biblio/save-book/save-book.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
 
+import { AuthGuard } from './guard/auth.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -20,46 +22,53 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path:'listBook',
+    path: 'listBook',
     component: ListBookComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'saveBook',
+    path: 'saveBook',
     component: SaveBookComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'signUp',
+    path: 'signUp',
     component: RegisterComponent,
   },
   {
-    path:'registerUser',
+    path: 'registerUser',
     component: RegisterComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'listUser',
+    path: 'listUser',
     component: ListUserComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'updateUser',
+    path: 'updateUser',
     component: UpdateUserComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'registerRole',
-    component: RegisterRoleComponent
+    path: 'registerRole',
+    component: RegisterRoleComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'listRole',
-    component: ListRoleComponent
+    path: 'listRole',
+    component: ListRoleComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'updateRole',
-    component: UpdateRoleComponent
-  }
-
+    path: 'updateRole',
+    component: UpdateRoleComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
